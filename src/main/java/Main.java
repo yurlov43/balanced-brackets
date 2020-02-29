@@ -1,9 +1,9 @@
 public class Main {
 
     public static void main(String[] args) {
-        String [] strings1 = {"())(", "))((", "((())", "(()((())()))", "(()()(()"};
+        String [] strings = {"())(", "))((", "((())", "(()((())()))", "(()()(()"};
 
-        for (String str : strings1) {
+        for (String str : strings) {
             if (balancedBrackets(str)) {
                 System.out.println(String.format("%s\t- Balanced brackets!", str));
             } else {
