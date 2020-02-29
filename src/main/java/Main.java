@@ -14,15 +14,24 @@ public class Main {
 
     public static boolean balancedBrackets(String str) {
         Stack stack = new Stack<Character>();
-        for (int i = 0; i < str.length(); i += 1) {
-            if (str.charAt(i) == '(') {
-                 stack.push(str.charAt(i));
+        int result = 0;
+        for (int i = str.length() - 1; i >= 0; i -= 1) {
+            stack.push(str.charAt(i));
+        }
+
+        while (stack.size() != 0) {
+            char ch = (char) stack.pop();
+            if (ch == '(') {
+                result += 1;
             }
-            if (str.charAt(i) == ')' && stack.pop() == null) {
-                return false;
+            if (ch == ')') {
+                result -= 1;
+            }
+            if (result < 0) {
+                break;
             }
         }
-        if (stack.size() != 0) {
+        if (result != 0) {
             return false;
         }
         return true;
